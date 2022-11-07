@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="miasto.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="user-info">
+        <div id="townName" class="title">*nazwa*
+            <button id="start" onclick="startgame()"></button>
+        </div>
+        <div id="population" class="title">0 ludzi</div>
+            <div id="FarmerNumber" class="population-title">0 rolników</div>
+            <div id="WoodmanNumber" class="population-title">0 drwali</div>
+            <div id="MinerNumber" class="population-title">0 górników</div>
+        <div id="hapiness" class="title">0</div>
+    </div>
+    <div class="resources">
+        <div id="gold-owned" class="title">0 złota</div>
+        <div id="food-owned" class="title">0 żywności</div>
+        <div id="wood-owned" class="title">0 drewna</div>
+        <div id="stone-owned" class="title">0 kamień</div>
+    <div class="gettingResources">
+        <div>
+            <img src="farm.png" width="32px" height="32px" alt="" onclick="farmClick()">
+            <p1 id="farm">Poziom 1</p1>
+            <img src="upgrade.png" width="32px" height="32px" alt="" onclick="Clickerupgrade(1)">
+        </div>
+        <div>
+            <img src="las.png" width="32px" height="32px" alt="" onclick="forestClick()">
+            <p1 id="forest">Poziom 1</p1>
+            <img src="upgrade.png" width="32px" height="32px" alt="" onclick="Clickerupgrade(2)">
+        </div>
+        <div>
+            <img src="quarry.png" width="32px" height="32px" alt="" onclick="quarryClick()">
+            <p1 id="quarry">Poziom 1</p1>
+            <img src="upgrade.png" width="32px" height="32px" alt="" onclick="Clickerupgrade(3)">
+        </div>
+    </div>
+    <div class="playerButtons">
+        <button id="newSetler" onclick="AddSetler()">Nowy osadnik</button>
+        <button id="newFarmer" onclick="AddFarmer()">Nowy rolnik</button>
+        <button id="newWoodman" onclick="AddWoodman()">Nowy drwal</button>
+        <button id="newMiner" onclick="AddMiner()">Nowy górnik</button>
+    </div>
+    <div class="building">Budynki
+        <div id="granary">Spichlerz
+            <img src="build.png" width="32px" height="32px" alt="" onclick="Granary()">
+        </div>
+        <div id="woodstorate">Magazyn na drewno
+            <img src="build.png" width="32px" height="32px" alt="" onclick="Storagebuild(1)">
+        </div>
+        <div id="woodstorate">Magazyn na kamień
+            <img src="build.png" width="32px" height="32px" alt="" onclick="Storagebuild(2)">
+        </div>
+        <div id="woodstorate">Magazyn na złoto
+            <img src="build.png" width="32px" height="32px" alt="" onclick="Storagebuild(3)">
+        </div>
+    </div>
+    <div class="market">Market
+        <img id="sellfood" src="goldforfood.png" onclick="Sellresources(1)">
+        <img id="sellwood" src="goldforwood.png" onclick="Sellresources(2)">
+        <img id="sell stone" src="goldforstone.png" onclick="Sellresources(3)">   
+        <button onclick="Storageupgrade(1)"></button>"
+    </div>
+
+    </div>    
+
+    </div>
+    <script src="miasto.js"></script>
+</body>
+</html>
