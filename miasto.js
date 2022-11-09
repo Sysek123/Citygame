@@ -10,6 +10,10 @@ const building = [
     {Farmlvl : 1, Forestlvl : 1, Quarrylvl : 1},
 ]
 
+const other = [
+    {Turn : 1}
+]
+
 haveGranary = false
 dupa = 20
 
@@ -43,29 +47,18 @@ function startgame() {
     updategold()  
 }
 
-function farmClick() {
-    if(resources[0].ownedFood  < resources[0].Foodmax) {
-    resources[0].ownedFood  += building[0].Farmlvl
-    updatefood()
-    } else {
-    console.log("nie") }
-}   
-
-function forestClick() {
-    if (resources[0].ownedWood < resources[0].Woodmax){
+function Endturn() {
+    other[0].Turn += 1
+    console.log(other[0].Turn)
+    var currentturn = document.getElementById("turncounter")
+    currentturn.textContent = other[0].Turn + " tura"
+    resources[0].ownedFood -= people[0].SetlerNumber 
+    resources[0].ownedFood += building[0].Farmlvl 
     resources[0].ownedWood += building[0].Forestlvl
-    updatewood()}
-    else {
-    console.log("nie") }
-}
-
-function quarryClick() {
-    if (resources[0].ownedStone < resources[0].Stonemax){
     resources[0].ownedStone += building[0].Quarrylvl
-    updatestone()}
-    else {
-    console.log("nie")
-    }
+    updatefood()
+    updatewood()
+    updatestone()
 }
 
 function AddSetler() {
@@ -202,38 +195,55 @@ function Sellresources(x) {
 
 }
 
-function Granary() {
-    if (resources[0].ownedGold >= 50 && people[0].SetlerNumber >= 5) 
+function Buildingimage(x) {
+    var childDiv = document.getElementsByClassName("buildingimage")[x]
+    childDiv.src = "upgrade.png"
+    document.getElementsByClassName("buildingimage")[x].onclick = function () { Storageupgrade(x); };
+}
+
+function Granary(x) {
+    if (resources[0].ownedGold >= 50 && people[0].SetlerNumber >= 0) 
         resources[0].ownedGold -= 50
         updategold()
         resources[0].Foodmax = 250
-        haveGranary = true  
+        haveGranary = true;
+        Buildingimage(x)
 }
 
 function Storagebuild(x) {
     if (resources[0].ownedGold >= 50 && x == 1) {
         resources[0].ownedGold -= 50
         updategold()
+        Buildingimage(x)
         resources[0].Woodmax = 200}
     if (resources[0].ownedGold >= 50 && x == 2){
         resources[0].ownedGold -= 50
         updategold()
+        Buildingimage(x)
         resources[0].Stonemax = 200}
     if (resources[0].ownedGold >= 50 && x == 3){
         resources[0].ownedGold -= 50
         updategold()
+        Buildingimage(x)
         resources[0].Goldmax = 200}
 }
 
 function Storageupgrade(x) {
+    if(resources[0].ownedGold >= 500 && x == 0) {
+    resources[0].Foodmax == 200
+    resources[0].ownedGold -= 500
+    updategold()}
     if(resources[0].ownedGold >= 500 && x == 1) {
     resources[0].Woodmax = 200
+    resources[0].ownedGold -= 500
     updategold()}
     if(resources[0].ownedGold >= 500 && x == 2) {
     resources[0].Stonemax = 200
+    resources[0].ownedGold -= 500
     updategold()}
     if(resources[0].ownedGold >= 500 && x == 3){
     resources[0].Goldmax = 200
+    resources[0].ownedGold -= 500
     updategold()}
 }   
 

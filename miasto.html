@@ -23,19 +23,20 @@
         <div id="food-owned" class="title">0 żywności</div>
         <div id="wood-owned" class="title">0 drewna</div>
         <div id="stone-owned" class="title">0 kamień</div>
+    </div>
     <div class="gettingResources">
         <div>
-            <img src="farm.png" width="32px" height="32px" alt="" onclick="farmClick()">
+            <img src="farm.png" width="32px" height="32px" alt="">
             <p1 id="farm">Poziom 1</p1>
             <img src="upgrade.png" width="32px" height="32px" alt="" onclick="Clickerupgrade(1)">
         </div>
         <div>
-            <img src="las.png" width="32px" height="32px" alt="" onclick="forestClick()">
+            <img src="las.png" width="32px" height="32px" alt="">
             <p1 id="forest">Poziom 1</p1>
             <img src="upgrade.png" width="32px" height="32px" alt="" onclick="Clickerupgrade(2)">
         </div>
         <div>
-            <img src="quarry.png" width="32px" height="32px" alt="" onclick="quarryClick()">
+            <img src="quarry.png" width="32px" height="32px" alt="">
             <p1 id="quarry">Poziom 1</p1>
             <img src="upgrade.png" width="32px" height="32px" alt="" onclick="Clickerupgrade(3)">
         </div>
@@ -46,30 +47,30 @@
         <button id="newWoodman" onclick="AddWoodman()">Nowy drwal</button>
         <button id="newMiner" onclick="AddMiner()">Nowy górnik</button>
     </div>
-    <div class="building">Budynki
-        <div id="granary">Spichlerz
-            <img src="build.png" width="32px" height="32px" alt="" onclick="Granary()">
+    <div class="buildings">Budynki
+        <div class="building" id="granary">Spichlerz
+            <img class="buildingimage" src="build.png" id="granaryimg" width="32px" height="32px" alt="" onclick="Granary(0)">
         </div>
-        <div id="woodstorate">Magazyn na drewno
-            <img src="build.png" width="32px" height="32px" alt="" onclick="Storagebuild(1)">
+        <div class="building" id="woodstorate">Magazyn na drewno
+            <img class="buildingimage" src="build.png" width="32px" height="32px" alt="" onclick="Storagebuild(1)">
         </div>
-        <div id="woodstorate">Magazyn na kamień
-            <img src="build.png" width="32px" height="32px" alt="" onclick="Storagebuild(2)">
+        <div class="building" id="woodstorate">Magazyn na kamień
+            <img class="buildingimage" src="build.png" width="32px" height="32px" alt="" onclick="Storagebuild(2)">
         </div>
-        <div id="woodstorate">Magazyn na złoto
-            <img src="build.png" width="32px" height="32px" alt="" onclick="Storagebuild(3)">
+        <div class="building" id="woodstorate">Magazyn na złoto
+            <img class="buildingimage" src="build.png" width="32px" height="32px" alt="" onclick="Storagebuild(3)">
         </div>
     </div>
-    <div class="market">Market
-        <img id="sellfood" src="goldforfood.png" onclick="Sellresources(1)">
-        <img id="sellwood" src="goldforwood.png" onclick="Sellresources(2)">
-        <img id="sell stone" src="goldforstone.png" onclick="Sellresources(3)">   
-        <button onclick="Storageupgrade(1)"></button>"
-    </div>
-
-    </div>    
-
-    </div>
+        <div class="market">Market
+            <img id="sellfood" src="goldforfood.png" onclick="Sellresources(1)">
+            <img id="sellwood" src="goldforwood.png" onclick="Sellresources(2)">
+            <img id="sell stone" src="goldforstone.png" onclick="Sellresources(3)">   
+            <button onclick="Storageupgrade(1)"></button>"
+        </div>
+        <div class="turns">
+            <img src="turn.png" width="32px" height="32px" alt="" onclick="Endturn()">
+            <p1 id="turncounter">1 tura</p1>
+        </div>
     <script src="miasto.js"></script>
 </body>
 </html>
