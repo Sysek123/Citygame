@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width>, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="miasto.css" />
+    <script src="jQuery.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -17,6 +18,9 @@
             <div id="WoodmanNumber" class="population-title">0 drwali</div>
             <div id="MinerNumber" class="population-title">0 górników</div>
         <div id="hapiness" class="title">0</div>
+    </div>
+    <div class="map">
+        <img src="mapa.png">
     </div>
     <div class="resources">
         <div id="gold-owned" class="title">0 złota</div>
@@ -68,7 +72,7 @@
             <button onclick="Storageupgrade(1)"></button>"
         </div>
         <div class="turns">
-            <img src="turn.png" width="32px" height="32px" alt="" onclick="Endturn()">
+            <img id="turn" src="turn.png" width="32px" height="32px" alt="" onclick="Endturn()">
             <p1 id="turncounter">1 tura</p1>
         </div>
     <script src="miasto.js"></script>

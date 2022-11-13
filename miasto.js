@@ -59,6 +59,8 @@ function Endturn() {
     updatefood()
     updatewood()
     updatestone()
+    var zmiana = document.getElementById("turn")
+    zmiana.src = "turn.png"
 }
 
 function AddSetler() {
@@ -247,3 +249,10 @@ function Storageupgrade(x) {
     updategold()}
 }   
 
+$(document).bind('keyup', function(e){
+    if(e.which==13) {
+    var zmiana = document.getElementById("turn")
+    zmiana.src = "turnend.png"
+    setTimeout(Endturn, 300)
+    }
+});
