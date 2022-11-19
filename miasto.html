@@ -13,20 +13,44 @@
         <div id="townName" class="title">*nazwa*
             <button id="start" onclick="startgame()"></button>
         </div>
-        <div id="population" class="title">0 ludzi</div>
+        <div id="population" class="title">0 wolnych obywateli</div>
             <div id="FarmerNumber" class="population-title">0 rolników</div>
             <div id="WoodmanNumber" class="population-title">0 drwali</div>
             <div id="MinerNumber" class="population-title">0 górników</div>
         <div id="hapiness" class="title">0</div>
     </div>
     <div class="map">
-        <img src="mapa.png">
-    </div>
-    <div class="resources">
-        <div id="gold-owned" class="title">0 złota</div>
-        <div id="food-owned" class="title">0 żywności</div>
-        <div id="wood-owned" class="title">0 drewna</div>
-        <div id="stone-owned" class="title">0 kamień</div>
+        <img src="mapa.png" usemap="#image-map">
+        <map name="image-map">
+            <area id="MineYellow" target="Mine" alt="" title="Mine" href="" coords="499,22,495,47,530,43,530,18" shape="poly" onclick="startgame()">
+        </map>
+        <div class="resources">
+            <img src="gold.png" title="Base +2" id="goldperturnimg">
+            <p2 id="gold-owned" class="title">0</p2>
+            <img src="wood.png" id="woodperturn">
+            <p2 id="wood-owned" class="title">0</p2>
+            <img src="stone.png" id="stoneperturn">
+            <p2 id="stone-owned" class="title">0</p2>
+            <img src="iron.png" id="ironperturn"> 
+            <p2 id="iron-owned" class="title">0</p2>
+        </div>
+        <div class="turns">
+            <p2 id="actions">2/2</p2>
+            <img id="turn" src="turn.png" width="32px" height="32px" alt="" title="Press Enter to end turn">
+            <p1 id="turncounter">1 tura</p1>
+        </div>
+        <div class="army">
+            <p1 id="armytitle">Twoja Armia:</p1>
+            
+        </div>
+        <div class="units">
+            <img src="piechota.png">
+            <p2>0/0</p2>
+            <img src="łucznik.png">
+            <p2>0/0</p2>
+            <img src="kawaleria.png">
+            <p2>2/2</p2>
+        </div>
     </div>
     <div class="gettingResources">
         <div>
@@ -70,10 +94,6 @@
             <img id="sellwood" src="goldforwood.png" onclick="Sellresources(2)">
             <img id="sell stone" src="goldforstone.png" onclick="Sellresources(3)">   
             <button onclick="Storageupgrade(1)"></button>"
-        </div>
-        <div class="turns">
-            <img id="turn" src="turn.png" width="32px" height="32px" alt="" onclick="Endturn()">
-            <p1 id="turncounter">1 tura</p1>
         </div>
     <script src="miasto.js"></script>
 </body>

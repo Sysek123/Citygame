@@ -1,9 +1,9 @@
 const resources = [
-    {ownedFood : 200, Foodmax : 50, ownedWood : 1000, Woodmax : 50, ownedStone : 1000, Stonemax : 50, ownedGold : 1000, Goldmax : 50},
+    {ownedFood : 50, Foodmax : 50, ownedWood : 50, Woodmax : 50, ownedStone : 50, Stonemax : 50, ownedGold : 50, Goldmax : 50, ownedIron : 50, TurnWood : 0, TurnStone : 0, TurnGold : 0, TurnIron : 0},
 ]
 
 const people = [
-    {SetlerNumber : 0,FarmerNumber : 0,WoodmanNumber : 0, MinerNumber : 0},
+    {SetlerNumber : 0,FarmerNumber : 0,WoodmanNumber : 0, MinerNumber : 0, TurnSelter : 1},
 ]
 
 const building = [
@@ -19,32 +19,46 @@ dupa = 20
 
 function updatefood() {
     var currentfood = document.getElementById('food-owned')
-    currentfood.textContent = resources[0].ownedFood + " żywności"
+    currentfood.textContent = resources[0].ownedFood
 }
 
 function updatewood() {
     var currentWood = document.getElementById('wood-owned')
-    currentWood.textContent = resources[0].ownedWood + " drewna"
+    currentWood.textContent = resources[0].ownedWood
 }
 
 function updatestone() {
     var currentStone = document.getElementById('stone-owned')
-    currentStone.textContent = resources[0].ownedStone + " kamienia"
+    currentStone.textContent = resources[0].ownedStone
 }
 
 function updategold() {
     var currentgold = document.getElementById('gold-owned')
-    currentgold.textContent = resources[0].ownedGold + ' złota'
+    currentgold.textContent = resources[0].ownedGold 
+}
+
+function updateiron() {
+    var currentiron = document.getElementById('iron-owned')
+    currentiron.textContent = resources[0].ownedIron 
+}
+
+function updatesetler() {
+    var currentsetler = document.getElementById("population")
+    currentsetler.textContent = people[0].SetlerNumber + " wolnych obywateli"
 }
 
 function startgame() {
     var name = prompt("Choose your town's name")
     var name1 = document.getElementById('townName')
     name1.textContent = name
-    updatefood()
     updatewood()
     updatestone()
-    updategold()  
+    updategold()
+    updateiron()
+    var chwila = document.getElementById("MineYellow")
+    chwila.title = "Mine1"
+    var chwila1 = document.getElementById("goldperturnimg")
+    chwila1.title += "\nTartak +1"
 }
 
 function Endturn() {
@@ -52,13 +66,16 @@ function Endturn() {
     console.log(other[0].Turn)
     var currentturn = document.getElementById("turncounter")
     currentturn.textContent = other[0].Turn + " tura"
-    resources[0].ownedFood -= people[0].SetlerNumber 
-    resources[0].ownedFood += building[0].Farmlvl 
-    resources[0].ownedWood += building[0].Forestlvl
-    resources[0].ownedStone += building[0].Quarrylvl
-    updatefood()
+    resources[0].ownedWood += resources[0].TurnWood
+    resources[0].ownedStone += resources[0].TurnStone
+    resources[0].ownedIron += resources[0].TurnIron
+    resources[0].ownedGold += resources[0].TurnGold
+    people[0].SetlerNumber += people[0].TurnSelter
+    updatesetler()
+    updategold()
     updatewood()
     updatestone()
+    updateiron()
     var zmiana = document.getElementById("turn")
     zmiana.src = "turn.png"
 }
